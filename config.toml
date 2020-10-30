@@ -1,0 +1,22 @@
+baseURL = "https://veixuan.github.io/"
+languageCode = "en-US"
+title = "我自情怀 君且随意"
+theme = "hago"
+
+DefaultContentLanguage = "en"
+metaDataFormat = "yaml"
+disqusShortname = "YOUR_DISQUS_SHORT_NAME"
+googleAnalytics = "UA-170157300-1"
+paginate = 4
+
+
+[Params]
+description = "我自情怀"
+subtitle = " 君且随意"
+logo = "/images/logo.ico"
+favicon = "/favicon.ico"
+comments = true
+
+[Author]
+name = "韦轩"
+website = "https://veixuan.github.io"
