@@ -18,9 +18,12 @@ jobs:
           extended: true
       - name: Build
         run: hugo -t hago
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v2.5.1
         env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           EXTERNAL_REPOSITORY: veixuan/veixuan.github.io
           PUBLISH_BRANCH: master
