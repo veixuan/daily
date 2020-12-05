@@ -5,12 +5,10 @@ tags: ["net",]
 categories: ["net"]
 ---
 
-# 背景
-
 `Android`手机`tcpdump`抓包
 <!--more-->
 
->   很多app不是使用`http`、`https`等应用层协议，使用`charles`无法抓到包。
+>    很多app不是使用`http`、`https`等应用层协议，使用`charles`无法抓到包。
 
 ## 环境
 
