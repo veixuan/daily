@@ -11,10 +11,10 @@ categories: ["编程语言"]
 
 ## 环境 
 
--   [ ] `android` 开发环境
--   [ ] `Android ndk`开发环境
--   [ ] `golang` 开发环境
--   [ ] `jna` [https://github.com/java-native-access/jna](https://github.com/java-native-access/jna)
+-   [x] `android` 开发环境
+-   [x] `Android ndk`开发环境
+-   [x] `golang` 开发环境
+-   [x] `jna` [https://github.com/java-native-access/jna](https://github.com/java-native-access/jna)
 
 ## `golang` 代码 
 
@@ -52,16 +52,16 @@ export CXX=${ndk_tool_path}/armv7a-linux-androideabi28-clang++
 go build -ldflags "-s -w"  -buildmode=c-shared -o libnpc.so cmd/npc/sdk.go
 ```
 
-这里生成的是`armeabi-v7a`**如果需要其他平台，修改`goarch`及对应的`cc`和`cxx`编译器**
+这里生成的是`arm64`**如果需要其他平台，修改`goarch`及对应的`cc`和`cxx`编译器**
+
+## 执行编译 
+
+可以看到生成两个文件 `libnpc.h` 和 `libnpc.so`, 这个库文件有点大 12m
 
 ```shell
 file libnpc.so
 libnpc.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, Go BuildID=MDuIWOynaHxgCjOzC_U5/1ePM-5jyxRPWgmWfSKDo/kSP5ZQo9ATT4Whkh9Cyl/sYvwEF0pawhTir_lw0vB, stripped
 ```
-
-## 执行编译 
-
-可以看到生成两个文件 `libnpc.h` 和 `libnpc.so`, 这个库文件有点大 14m
 
 ## `Android` 使用
 
@@ -135,9 +135,7 @@ public interface NpcClient extends Library {
 }
 ```
 
-
-
-最终的结构 
+6. 最终的结构 
 
 ```
 .
