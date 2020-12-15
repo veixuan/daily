@@ -17,7 +17,7 @@ jobs:
           hugo-version: '0.76.5'
           extended: true
       - name: Build
-        run: hugo -t hago
+        run: hugo -t echo
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: Deploy
