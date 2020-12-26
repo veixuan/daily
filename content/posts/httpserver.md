@@ -1,18 +1,18 @@
 ---
 # 常用定义
-title: "Httpserver"
+title: "golang http server的基本姿势"
 date: 2020-12-26T11:13:11+08:00
 lastmod: 2020-12-26T11:13:11+08:00
-tags: ["golang", "popular", "http","server"] 
+tags: ["golang", "http","server"] 
 categories: ["golang"]             
 author: "Neo"          
 # 用户自定义
 # 你可以选择 关闭(false) 或者 打开(true) 以下选项
-comment: true # 关闭评论
-toc: false       # 关闭文章目录
+comment: false # 关闭评论
+toc: true 
 reward: false	 # 关闭打赏
 ---
-`golang`中标准库`http server`的使用和实现。
+`golang`中标准库`http server`的使用和实现
 
 <!--more-->
 
@@ -92,10 +92,10 @@ func Serve(addr string) {
 
 ## 概念 
 
--   [ ] `Request` http 请求
--   [ ] `Response` http 响应，是server端需要返回给客户端的信息
--   [ ] `Handler` 处理请求和生成返回信息的处理逻辑
--   [ ] `ServeMux` 多路复用器
+-   [x] `Request` http 请求
+-   [x] `Response` http 响应，是server端需要返回给客户端的信息
+-   [x] `Handler` 处理请求和生成返回信息的处理逻辑
+-   [x] `ServeMux` 多路复用器
 
 ## 处理流程
 

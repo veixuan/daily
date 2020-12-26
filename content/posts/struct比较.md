@@ -1,11 +1,12 @@
 ---
-title: "Struct比较"
+title: "go中struct能否比较么?"
 date: 2020-10-31T00:38:32+08:00
 tags: ["golang",]
 categories: ["编程语言"]
+toc: true 
 ---
 
-Struct比较
+`Struct`在`golang`中能否比较?
 <!--more-->
 
 # struct compare
