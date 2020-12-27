@@ -6,7 +6,7 @@ categories: ["编程语言"]
 toc: true
 ---
 
-golang plugin 基本使用
+`golang plugin`	基本使用
 <!--more-->
 
 ## 基本用法

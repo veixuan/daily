@@ -4,7 +4,7 @@ title: "golang http server的基本姿势"
 date: 2020-12-26T11:13:11+08:00
 lastmod: 2020-12-26T11:13:11+08:00
 tags: ["golang", "http","server"] 
-categories: ["golang"]             
+categories: ["编程语言"]             
 author: "Neo"          
 # 用户自定义
 # 你可以选择 关闭(false) 或者 打开(true) 以下选项
@@ -16,9 +16,9 @@ reward: false	 # 关闭打赏
 
 <!--more-->
 
-# 基本姿势
+## 基本姿势
 
-## 最小化实现
+### 最小化实现
 
 ```go
 func Serve(addr string) {
@@ -29,7 +29,7 @@ func Serve(addr string) {
 }
 ```
 
-## 自定义实现 
+### 自定义实现 
 
 ```go
 type IndexHandler struct{}
@@ -53,7 +53,7 @@ func Serve(addr string) {
 }
 ```
 
-## 支持`https`
+### 支持`https`
 
 ```go
 // 1. 生成服务端私钥  2048单位bit key的长度 
@@ -69,11 +69,11 @@ log.Fatal(server.ListenAndServeTLS("server.crt", "server.key"))
 curl -k https://localhost:8000/hello
 ```
 
-## 支持 `http2`
+### 支持 `http2`
 
 >   `GO`的`http`库默认支持`HTTP/2`协议，只要我们使用TLS则会默认启动HTTP/2特性
 
-## 支持`quic`
+### 支持`quic`
 
 ```go
 // 安装依赖 
@@ -88,22 +88,22 @@ func Serve(addr string) {
 }
 ```
 
-# 实现原理 
+## 实现原理 
 
-## 概念 
+### 概念 
 
 -   [x] `Request` http 请求
 -   [x] `Response` http 响应，是server端需要返回给客户端的信息
 -   [x] `Handler` 处理请求和生成返回信息的处理逻辑
 -   [x] `ServeMux` 多路复用器
 
-## 处理流程
+### 处理流程
 
 >   后面再填坑
 
-# 常见实现 
+## 常见实现 
 
-## 获取`url query` 参数 
+### 获取`url query` 参数 
 
 ```go
 // http://localhost:8000/hello?name=张三 
@@ -111,7 +111,7 @@ func Serve(addr string) {
 	name := query.Get("name")
 ```
 
-## 获取 `url path` 参数
+### 获取 `url path` 参数
 
 ```go
 // 可以考虑使用第三方的http router 库 
@@ -122,7 +122,7 @@ func Serve(addr string) {
 // 原生库实现起来比较trick 
 ```
 
-## 获取 `post`参数
+### 获取 `post`参数
 
 ```go
 	body, _ := ioutil.ReadAll(request.Body)
@@ -221,15 +221,15 @@ func (srv *Server) Shutdown(ctx context.Context) error {
 }
 ```
 
-# 性能分析 
+## 性能分析 
 
-## 集成 pprof 
+### 集成 pprof 
 
 ```go
 	_ "net/http/pprof"
 ```
 
-## 集成 fgprof 
+### 集成 fgprof 
 
 `https://github.com/felixge/fgprof`
 
@@ -241,4 +241,3 @@ func (srv *Server) Shutdown(ctx context.Context) error {
 
 // go tool pprof --http=:6061 'http://localhost:8000/debug/fgprof?seconds=3'
 ```
-

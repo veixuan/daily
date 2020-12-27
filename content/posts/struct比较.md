@@ -9,8 +9,6 @@ toc: true
 `Struct`在`golang`中能否比较?
 <!--more-->
 
-# struct compare
-
 ## 哪些类型不能比较
 
 1.  slice
@@ -55,4 +53,27 @@ func DeepEqual(x, y interface{}) bool {
 ```
 
 结论：如果struct中包含了 上述不能比较的类型，是不能直接比较的。
+
+## 终极大招 
+
+>   如何保证一个自定义类型`struct` 不能被比较?
+
+```go
+// 1. 定义一个no compare 的struct 
+type noCompare struct {
+	nocmp [0]func() // 同时包含了slice和function
+}
+// 2. 将这个struct 组合到自定义类型中 
+type Dummy struct {
+	noCompare
+}
+// 3. 尝试比较将直接报错 
+	d1 := Dummy{}
+	d2 := Dummy{}
+	log.Printf("cmp %+v", d1 == d2)
+// 输出
+// invalid operation: d1 == d2 (struct containing noCompare cannot be compared)
+```
+
+
 

@@ -10,13 +10,7 @@ toc: false       # 关闭文章目录
 reward: true	 # 关闭打赏
 ---
 
-## 个人信息 
-
-- 毕业于四川大学 
-- 工作年限: 4年
-
-
 ## 技术栈 
 
-- 技术栈`Golang`、`Python`、`Java`、`c++`
+- 技术栈`Golang`、`Python`、`Java`
 - 专注广告投放引擎、平台开发
