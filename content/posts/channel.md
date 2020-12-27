@@ -639,3 +639,4 @@ func closechan(c *hchan) {
 >   -   关闭一个已经关闭的channel 会panic 
 >   -   所有等待消费的线程不会panic 
 >   -   所有等待发送的线程会panic 
+>   -   **从一个有缓冲的 channel 里读数据，当 channel 被关闭，依然能读出有效值。只有当返回的 ok 为 false 时，读出的数据才是无效的**
